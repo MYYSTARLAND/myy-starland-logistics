@@ -118,24 +118,67 @@
             我们致力于为客户提供安全、高效、价格合理的运输服务，覆盖 Miri、Bintulu、Sibu、Kuching 等主要城市。
         </p>
     </section>
-<!-- 🟦 服务项目（带点击放大功能） -->
-<section id="services" style="text-align:center; padding:50px 20px;">
-  <h2>价格|教学</h2>
-  <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-    <div style="position:relative;">
+<!-- ✨ 价格|教学（带淡入+放大互动效果） -->
+<section id="services" style="text-align:center; padding:50px 20px; background-color:#fafafa;">
+  <h2 style="margin-bottom:30px;">Our Services</h2>
+  
+  <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+    <div class="service-item">
       <img src="https://raw.githubusercontent.com/MYYSTARLAND/myy-starland-logistics/refs/heads/main/%E4%BF%83%E9%94%808.png"
-           alt="Shipping"
-           style="width:300px; border-radius:15px; cursor:pointer; transition:transform 0.3s;"
+           class="service-img"
            onclick="openImage(this.src)">
       <p>Sea Freight</p>
     </div>
 
-    <div style="position:relative;">
+    <div class="service-item">
       <img src="https://raw.githubusercontent.com/MYYSTARLAND/myy-starland-logistics/refs/heads/main/%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%AD%E4%BF%9D%E6%8A%A4%E5%8F%B7-MIRI.png"
-           alt="Warehouse"
-           style="width:300px; border-radius:15px; cursor:pointer; transition:transform 0.3s;"
+           alt="Warehousing"
+           class="service-img"
            onclick="openImage(this.src)">
       <p>Warehousing</p>
+    </div>
+  </div>
+</section>
+
+<!-- 🖼️ 点击放大图片弹出层 -->
+<div id="imageModal" onclick="this.style.display='none'"
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center;">
+  <img id="modalImg" src="" style="max-width:90%; max-height:90%; border-radius:15px;">
+</div>
+
+<!-- ✨ 动画与交互脚本 -->
+<style>
+  .service-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards;
+  }
+  .service-item:nth-child(1) { animation-delay: 0.2s; }
+  .service-item:nth-child(2) { animation-delay: 0.4s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .service-img {
+    width: 300px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .service-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+</style>
+
+<script>
+  function openImage(src) {
+    document.getElementById("modalImg").src = src;
+    document.getElementById("imageModal").style.display = "flex";
+  }
+</script>
     </div>
   </div>
 </section>
@@ -190,6 +233,7 @@
 
 </body>
 </html>
+
 
 
 
